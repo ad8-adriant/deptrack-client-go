@@ -66,8 +66,8 @@ type FindingService struct {
 	client *Client
 }
 
-// GetAll fetches all findings for a given project.
-func (f FindingService) GetAll(ctx context.Context, projectUUID uuid.UUID, suppressed bool, po PageOptions) (p Page[Finding], err error) {
+// GetAllForProject fetches all findings for a given project.
+func (f FindingService) GetAllForProject(ctx context.Context, projectUUID uuid.UUID, suppressed bool, po PageOptions) (p Page[Finding], err error) {
 	params := map[string]string{
 		"suppressed": strconv.FormatBool(suppressed),
 	}
