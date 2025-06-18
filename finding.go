@@ -86,6 +86,29 @@ func (f FindingService) GetAllForProject(ctx context.Context, projectUUID uuid.U
 	return
 }
 
+// GetAllForVulnerability fetches all findings matching the given parameters.
+func (f FindingService) GetAllForVulnerability(ctx context.Context, id string, suppressed, inactive bool, po PageOptions) (p Page[Finding], err error) {
+	params := map[string]string{
+		"showSuppressed":  strconv.FormatBool(suppressed),
+		"showInactive":    strconv.FormatBool(inactive),
+		"textSearchField": "vulnerability_id",
+		"textSearchInput": id,
+	}
+
+	req, err := f.client.newRequest(ctx, http.MethodGet, "/api/v1/finding", withParams(params), withPageOptions(po))
+	if err != nil {
+		return
+	}
+
+	res, err := f.client.doRequest(req, &p.Items)
+	if err != nil {
+		return
+	}
+
+	p.TotalCount = res.TotalCount
+	return
+}
+
 // ExportFPF exports the findings of a given project in the File Packaging Format (FPF).
 func (f FindingService) ExportFPF(ctx context.Context, projectUUID uuid.UUID) (d []byte, err error) {
 	req, err := f.client.newRequest(ctx, http.MethodGet, fmt.Sprintf("/api/v1/finding/project/%s/export", projectUUID))
