@@ -1,13 +1,15 @@
 module github.com/ad8-adriant/deptrack-client-go
 
-go 1.19
+go 1.23.0
+
+toolchain go1.23.2
 
 require (
 	github.com/google/go-cmp v0.5.9
-	github.com/google/uuid v1.3.0
+	github.com/google/uuid v1.6.0
 	github.com/stretchr/testify v1.8.4
 	github.com/testcontainers/testcontainers-go v0.22.0
-	golang.org/x/mod v0.20.0
+	golang.org/x/mod v0.25.0
 )
 
 require (
