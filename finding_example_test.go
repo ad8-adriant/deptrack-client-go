@@ -13,7 +13,7 @@ func Example_fetchAllFindings() {
 	projectUUID := uuid.MustParse("2d16089e-6d3a-437e-b334-f27eb2cbd7f4")
 
 	_, err := dtrack.FetchAll(func(po dtrack.PageOptions) (dtrack.Page[dtrack.Finding], error) {
-		return client.Finding.GetAll(context.TODO(), projectUUID, false, po)
+		return client.Finding.GetAllForProject(context.TODO(), projectUUID, false, po)
 	})
 	if err != nil {
 		panic(err)
