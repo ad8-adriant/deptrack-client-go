@@ -1,7 +1,7 @@
 # client-go
 
-[![CI](https://github.com/DependencyTrack/client-go/actions/workflows/ci.yml/badge.svg)](https://github.com/DependencyTrack/client-go/actions/workflows/ci.yml)
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/DependencyTrack/client-go)](https://pkg.go.dev/github.com/DependencyTrack/client-go)
+[![CI](https://github.com/ad8-adriant/deptrack-client-go/actions/workflows/ci.yml/badge.svg)](https://github.com/ad8-adriant/deptrack-client-go/actions/workflows/ci.yml)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/ad8-adriant/deptrack-client-go)](https://pkg.go.dev/github.com/ad8-adriant/deptrack-client-go)
 [![License](https://img.shields.io/badge/license-Apache%202.0-brightgreen.svg)](LICENSE)
 
 *Go client library for [OWASP Dependency-Track](https://dependencytrack.org/)*
@@ -25,7 +25,7 @@ Example use-cases include:
 ## Installation
 
 ```
-go get github.com/DependencyTrack/client-go
+go get github.com/ad8-adriant/deptrack-client-go
 ```
 
 ## Compatibility
@@ -37,7 +37,7 @@ go get github.com/DependencyTrack/client-go
 
 ## Usage
 
-Please refer to the [documentation](https://pkg.go.dev/github.com/DependencyTrack/client-go).
+Please refer to the [documentation](https://pkg.go.dev/github.com/ad8-adriant/deptrack-client-go).
 
 ## API Coverage
 
