@@ -10,6 +10,15 @@ import (
 	"github.com/google/uuid"
 )
 
+type CollectionLogic string
+
+var (
+	CollectionLogicNone                           CollectionLogic = "NONE"
+	CollectionLogicAggregateDirectChildren        CollectionLogic = "AGGREGATE_DIRECT_CHILDREN"
+	CollectionLogicAggregateDirectChildrenWithTag CollectionLogic = "AGGREGATE_DIRECT_CHILDREN_WITH_TAG"
+	CollectionLogicAggregateLatestVersionChildren CollectionLogic = "AGGREGATE_LATEST_VERSION_CHILDREN"
+)
+
 type Project struct {
 	UUID               uuid.UUID           `json:"uuid,omitempty"`
 	Author             string              `json:"author,omitempty"`
@@ -31,6 +40,8 @@ type Project struct {
 	ParentRef          *ParentRef          `json:"parent,omitempty"`
 	LastBOMImport      int                 `json:"lastBomImport"`
 	ExternalReferences []ExternalReference `json:"externalReferences,omitempty"`
+	CollectionLogic    CollectionLogic     `json:"collectionLogic,omitempty"`
+	CollectionTag      string              `json:"collectionTag,omitempty"`
 }
 
 type ParentRef struct {
